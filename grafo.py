@@ -51,9 +51,10 @@ class Grafo:
         
     def get_vertices_isolados(self) -> list:
         vertices_isolados = []
-        if not self.get_vertices():
+        vertices = self.get_vertices()
+        if not vertices:
             return None
-        for vertice in self.vertices:
+        for vertice in vertices:
             if not vertice.get_vizinhos():
                 vertices_isolados.append(vertice.valor)
         if vertices_isolados:
@@ -172,8 +173,6 @@ class Grafo:
 
         if not (v1 and v2):
             return -1
-        elif v1 == v2:
-            return 1
         else:
             visitados = set()
             visitados.add(v1)
@@ -211,8 +210,6 @@ class Grafo:
 
         if not (v1 and v2):
             return -1
-        elif v1 == v2:
-            return 1
         else:
             visitados = set()
             visitados.add(v1)
